@@ -1,0 +1,22 @@
+#SOME_COMMON_COMMANDS
+minikube start  -->to start minikube
+kubectl apply -f <yaml-file-name>  -->to create k8s object
+kubectl get <object-type> <can-give-object-name>
+kubectl get <object-type> -o wide  -->to get more details
+kubectl describe <object-type> <object-name> 
+kubectl logs -f <pod-name> -c <container-name>  -->to know what is running inside container
+kubectl exec <pod-name> -it -c <container-name> -- /bin/bash  -->to go inside container
+kubectl delete <object-type> <object-name>
+kubectl delete -f <name-of-manifest>
+
+#LABELS_and_SELECTORS
+kubectl get <object> --show-labels  -->to show labels
+kubectl label <object-type> <object-name> <mention-label>  -->to add label to existing object
+kubectl get <object-type> -l <mention-label> //(if label is name=anshu then name!=anshu will show which doesn't have this label(can write multiple label)  -->to get objects matching label
+kubectl delete <object-type> -l <mention-label>  -->to delete object
+//above was equality-based 
+//now set-based
+kubectl get <object-type> -l 'env in(<mention-multiple-label>)'  -->to get object that contains these label
+kubectl get <object-type> -l 'env notin(<mention-multiple-label>)'  -->to get object that doesn't contains these label
+
+#REPLICA-CONTROLLER_and_REPLICA-SET
