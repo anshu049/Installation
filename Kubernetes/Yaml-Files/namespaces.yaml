@@ -23,8 +23,12 @@ spec:
 
 
 
-$ kubectl config set-context $(kubectl config current-context) --namespace=dev
-$ kubectl config view | grep namespace:
+$ kubectl config set-context $(kubectl config current-context) --namespace=dev -->to set as default namespace
+$ kubectl config view | grep namespace: -->to see current namespace
+
+
+
+
 apiVersion: v1
 kind: Pod
 metadata:
