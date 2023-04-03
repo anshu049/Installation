@@ -5,7 +5,7 @@ sudo mv /tmp/eksctl /usr/local/bin
 #Then we need to create the EKS cluster by running this command
 eksctl create cluster
 
-aws eks update-kubeconfig --region <region-name> --name <cluster-name>
+aws eks update-kubeconfig --region ap-south-1 --name <cluster-name>
 
 oidc_id=$(aws eks describe-cluster --name <cluster-name> --query "cluster.identity.oidc.issuer" --output text | cut -d '/' -f 5)
 aws iam list-open-id-connect-providers | grep $oidc_id
